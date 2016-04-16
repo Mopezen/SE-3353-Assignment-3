@@ -1,9 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="app.js"/>
-	</head>
-	<body>
-		<canvas id="myCanvas" width="200" height="100"></canvas>
-	</body>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css">
+	<script src="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.js"></script>
+</head>
+<body>
+	<div class="title-bar">
+		<div class="title-bar-left">
+			<span class="title-bar-title">Canvas Art: SE3353</span>
+		</div>
+	</div>
+	</br>
+	<div class="row">
+		<div class="small-10 small-centered">
+			<button type="button" class="large secondary button" onclick="addEllipse()">Add an ellipse</button>
+			<button type="button" class="large secondary button" onclick="addCircle()">Add a circle</button>
+			<button type="button" class="large secondary button" onclick="addRectange()">Add a rectangle</button>
+			<button type="button" class="large secondary button" onclick="addSquare()">Add a square</button>
+			<button type="button" class="large success button" onclick="saveCanvas()">Save Canvas</button>
+			<button type="button" class="large alert button" onclick="clearCanvas()">Clear</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-9 small-centered">
+			<button type="button" class="large secondary button" onclick="modeFree()">Free hand draw</button>
+			<button type="button" class="large secondary button" onclick="modeLine()">Line Draw</button>
+			<button type="button" class="large secondary button" onclick="modePoly()">Draw a polygon</button>
+			<button type="button" class="large secondary button" onclick="modeSelect()">Selection Mode</button>
+			<button type="button" class="large warning button" onclick="loadCanvas()">Load Canvas</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-2">
+			<label>Choose your drawing colour:
+				<input type="color" id="html5colorpicker" onchange="changeColour()" value="#0000ff" style="width:50%;">
+			</label>
+		</div>
+		<div class="small-10">
+			<p> Controls: Ctrl+C = Copy, Ctrl+V = Paste, Ctrl+X = Cut, Enter = Finish Polygon, Mouse Down = Start Drawing, Mouse Up = Finish Shape</p>
+		</div>
+	</div>
+	<div class="row">
+		<canvas id="canvas" width="1200" height="550" onmousedown="canvasMouseDown()"></canvas>
+	</div>
+
+    <script src="fabric.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>
